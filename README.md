@@ -33,3 +33,24 @@ To generate test dataset, use ```pre_precess_bsd500_ori_sz.py```.
 ```
 python pre_process_bsd500_ori_sz.py
 ```
+The three files record the absolute path of the images, named as ```train.txt```, ```val.txt``` and ```test.txt```.
+
+## Training 
+Change the default file path in the argparse command as you need.
+``` 
+dump_root=<DUMP_DIR> # the path where the preprocessed image stored
+save_path=<CKPT_LOG_DIR>
+pretrained=<PRETRAINED_CKPT_DIR>
+```
+If you set the ```<PRETARINED_CKPT_DIR>```, you will fine-tine the pretrained model. 
+
+We can view the training log by using ```tensorboard.sh```.
+
+## Test
+The test code can provide two kinds of results:
+(1) superpixel visualization,
+(2) mapcsv file.
+
+To test on BSDS500,
+```python run_infer_bsds.py```
+
