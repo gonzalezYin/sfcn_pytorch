@@ -38,11 +38,15 @@ The three files record the absolute path of the images, named as ```train.txt```
 ## Training 
 Change the default file path in the argparse command as you need.
 ``` 
-dump_root=<DUMP_DIR> # the path where the preprocessed image stored
-save_path=<CKPT_LOG_DIR>
-pretrained=<PRETRAINED_CKPT_DIR>
+dump_root=<DUMP_ROOT> # the path where the preprocessed image stored
+save_path=<CKPT_LOG>
+pretrained_model=<PRETRAINED_CKPT>
+writer_dir=<WRITER_RECORD> # the path where you store the SummaryWriter for the TensorBoardX
 ```
 If you set the ```<PRETARINED_CKPT_DIR>```, you will fine-tine the pretrained model. 
+```
+python main.py
+```
 
 We can view the training log by using ```tensorboard.sh```.
 
