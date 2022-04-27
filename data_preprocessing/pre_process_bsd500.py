@@ -8,9 +8,9 @@ from joblib import Parallel, delayed
 import matplotlib.pyplot as plt
 
 parser = argparse.ArgumentParser()
-parser.add_argument("--dataset", type=str, default="/home/dulab/Documents/BSR_full",
+parser.add_argument("--dataset", type=str, default="",
                     help="where the filtered dataset is stored")
-parser.add_argument("--dump_root", type=str, default="/home/dulab/Documents/super_pixel/my_sfcn/dump_root",
+parser.add_argument("--dump_root", type=str, default="./dump_root",
                     help="Where to dump the data")
 parser.add_argument("--b_filter", type=bool, default=False,
                     help="we do not use this in our paper")
