@@ -12,6 +12,7 @@ author: Fengting
 Nov 10th, 2018
 '''
 
+
 def readPFM(file):
     file = open(file, 'rb')
 
@@ -36,11 +37,13 @@ def readPFM(file):
         raise Exception('Malformed PFM header.')
 
     scale = float(file.readline().decode("ascii").rstrip())
-    if scale < 0: # little-endian
+    if scale < 0:
+        # little-endian
         endian = '<'
         scale = -scale
     else:
-        endian = '>' # big-endian
+        endian = '>'
+        # big-endian
 
     data = np.fromfile(file, endian + 'f')
     shape = (height, width, 3) if color else (height, width)

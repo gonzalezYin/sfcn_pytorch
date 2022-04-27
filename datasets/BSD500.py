@@ -36,12 +36,11 @@ def make_dataset(dir):
     try:
         with open(train_list_path, 'r') as tf:
             train_list = tf.readlines()
-
         with open(val_list_path, 'r') as vf:
             val_list = vf.readlines()
 
     except IOError:
-        print('Error No avaliable list ')
+        print('Error! No avaliable list ')
         return
 
     return train_list, val_list
@@ -54,19 +53,19 @@ def BSD_loader(img_path, label):
     return img, gt_seg
 
 
-def BSD500(root, transform=None, target_transform=None, val_transform=None, co_transform=None, split=None):
+def BSD500(root, image_transform=None, label_transform=None, val_transform=None, co_transform=None, split=None):
     train_list, val_list = make_dataset(root)
 
-    if val_transform == None:
-        val_transform = transform
+    if val_transform is None:
+        val_transform = image_transform
 
-    train_dataset = ListDataset(root, 'bsd500', train_list, transform,
-                                target_transform, co_transform,
+    train_dataset = ListDataset(root, 'bsd500', train_list, image_transform,
+                                label_transform, co_transform,
                                 loader=BSD_loader, datatype='train')
 
     val_dataset = ListDataset(root, 'bsd500', val_list, val_transform,
-                               target_transform, flow_transforms.CenterCrop((320,320)),
-                               loader=BSD_loader, datatype='val')
+                              label_transform, flow_transforms.CenterCrop((320, 320)),
+                              loader=BSD_loader, datatype='val')
 
     return train_dataset, val_dataset
 
