@@ -11,8 +11,8 @@ Convert .mat data to the image and label data for test
 
 '''
 parser = argparse.ArgumentParser()
-parser.add_argument("--dataset", type=str, default='/home/dulab/Documents/BSR_full', help="where the dataset is stored")
-parser.add_argument("--dump_root", type=str, default="/home/dulab/Documents/super_pixel/my_sfcn/dump_root", help="Where to dump the data")
+parser.add_argument("--dataset", type=str, default='', help="where the dataset is stored")
+parser.add_argument("--dump_root", type=str, default="./dump_root", help="Where to dump the data")
 parser.add_argument("--num_threads", type=int, default=4, help="number of threads to use")
 args = parser.parse_args()
 
