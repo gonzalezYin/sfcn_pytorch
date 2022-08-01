@@ -57,7 +57,7 @@ The test code can provide two kinds of results:
 
 To test on BSDS500,
 
-run ```python run_infer_bsds.py --data_dir=<DUMP_DIR> --output=<TEST_OUTPUT_DIR> --pretrained=<PATH_TO_THE_CKPT>```
+run ```python run_infer_bsds.py --dump_root=<DUMP_DIR> --save_path=<TEST_RESULT_DIR> --pretrained_model=<PATH_TO_THE_CKPT>```
 
 To test on NYUv2, please first extract their pre-processed dataset from /nyu_test_set/nyu_preprocess_tst.tar.gz to ```<NYU_TEST>```.
 
